@@ -32,7 +32,7 @@ public class FloatingTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(IsPlayerStand && PlatformLength >= 0.0f)
+        if (IsPlayerStand && PlatformLength >= 0.0f)
         {
             Shrink();
         }
@@ -43,12 +43,14 @@ public class FloatingTest : MonoBehaviour
         
     }
 
+    //Setting shrink and platform updates
     private void Shrink()
     {
         PlatformLength -= 2.0f * Time.deltaTime;
         FloatPlatform.transform.localScale = new Vector3(PlatformLength, 2.0f, 0.0f);
     }
 
+    //Setting recovery and platform updates
     private void resize()
     {
         PlatformLength += 1.0f * Time.deltaTime;
@@ -56,6 +58,7 @@ public class FloatingTest : MonoBehaviour
         
     }
 
+    //Detecting player collisions
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
